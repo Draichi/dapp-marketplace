@@ -19,4 +19,16 @@ contract('Marketplace', accounts => {
       assert.equal(name, 'Market Place hello world like')
     })
   })
+
+  describe('products', async () => {
+    let result, productCount
+    before(async () => {
+      result = await marketplace.createProduct('Product name', web3.utils.toWei('1', 'Ether'))
+      productCount = await marketplace.productCount()
+    })
+
+    it('creates products', async () => {
+      assert.equal(productCount, 1)
+    })
+  })
 })

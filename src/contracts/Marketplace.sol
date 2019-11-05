@@ -2,10 +2,22 @@ pragma solidity ^0.5.0;
 
 contract Marketplace {
     string public name;
-    string public jurere;
+    uint public productCount = 0;
+    mapping(uint => Product) public products;
+
+    struct Product {
+        uint id;
+        string name;
+        uint price;
+        address owner;
+        bool purchased;
+    }
 
     constructor() public {
         name = "Market Place hello world like";
-        jurere = "oi";
+    }
+
+    function createProduct(string memory _name, uint price) public {
+        productCount++;
     }
 }
