@@ -12,4 +12,6 @@ truffle console
 
 truffle compile
 truffle migrate
+
+truffle test
 ```
