@@ -33,4 +33,13 @@ contract Marketplace {
         products[productCount] = Product(productCount, _name, _price, msg.sender, false);
         emit ProductCreated(productCount, _name, _price, msg.sender, false);
     }
+
+    function purchaseProduct(uint _id) public {
+        Product memory _product = products[_id];
+        address _seller = _product.owner;
+        _product.owner = msg.sender;
+        _product.purchased = true;
+        products[_id] = _product;
+        
+    }
 }
